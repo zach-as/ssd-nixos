@@ -33,6 +33,8 @@
     # Enable git
     enable = true;
     extraConfig = {
+      user.name = "zach-as";
+      user.email = "zach.andersturtz@sturtzsolutions.com";
       # Set up credential manager
       credential = {
         helper = "manager";
@@ -42,6 +44,11 @@
 
       # Set default branch to main
       init.defaultBranch = "main";
+
+      # "Auto remote push
+      push = {
+        autoSetUpRemote = true;
+      };
     };
   };
 
@@ -69,10 +76,6 @@
           helper = "${nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
         };
 
-        # "Auto remote push
-        push = {
-          autoSetUpRemote = true;
-        };
       };
     };
   */
