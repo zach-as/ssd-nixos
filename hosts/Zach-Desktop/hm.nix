@@ -7,16 +7,16 @@ let
   hyprland-settings-custom = {
     settings.monitor = [
       "HDMI-A-1, 1920x1080, 2560x0, 1"
-      "eDP-2, 1920x1080, 0x-1440, 1"
-      "eDP-3, 2560x1440, 0x0, 1"
+      "DP-2, 1920x1080, 0x-1440, 1, mirror, DP-3"
+      "DP-3, 2560x1440, 0x0, 1"
     ];
   };
   waybar-settings-custom = {
     settings.mainBar = {
       output = [
         "HDMI-A-1"
-        "eDP-2"
-        "eDP-3"
+        "DP-2"
+        "DP-3"
       ];
     };
   };

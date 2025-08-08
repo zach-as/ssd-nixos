@@ -2,6 +2,7 @@
   #config,
   lib,
   pkgs,
+  outputs,
   ...
 }:
 
@@ -9,6 +10,7 @@ let
   inherit (lib) getExe;
 in
 {
+
   /*
     monitor = [
          "eDP-2, 2560x1600, 0x0, 1"
@@ -29,6 +31,7 @@ in
     in
     [
       #"${getExe pkgs.swaybg} -i ${config.home.file.wallpaper.target}"
+      "${getExe pkgs.swaybg} -i ${outputs.configModules.wallpaper-target}"
       "${start-waybar}/bin/start-waybar"
     ];
 

@@ -31,8 +31,8 @@ in
   ];
 
   home.file.wallpaper = {
-    target = ".config/hypr/wallpaper.jpg";
-    source = outputs.configModules.wallpaper;
+    target = outputs.configModules.wallpaper-target;
+    source = outputs.configModules.wallpaper-source;
   };
   /*
     home.file = lib.mkMerge [
