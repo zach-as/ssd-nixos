@@ -25,6 +25,7 @@ in
       config.bind('x', 'tab-close')
       config.bind('<Ctrl-O>', 'back')
       config.bind('<Ctrl-I>', 'forward')
+      c.qt.force_software_rendering = 'chromium'
     '';
 
     #c.qt.workarounds.remove_service_workers = True
