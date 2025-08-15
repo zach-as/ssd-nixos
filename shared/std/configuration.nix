@@ -11,6 +11,11 @@
   ...
 }:
 {
+  environment.sessionVariables = {
+    # Force Chromium and Electron-based applications to use the Wayland backend instead of XWayland
+    NIXOS_OZONE_WL = "1";
+  };
+
   # Enable setting of GNOME anad Gtk themes via gnome-manager
   programs.dconf.enable = true;
 
@@ -21,7 +26,7 @@
     enableSSHSupport = true;
   };
 
-
+  nixpkgs.config.allowUnfree = true;
 
   # Set your time zone.
   time.timeZone = "America/Phoenix";

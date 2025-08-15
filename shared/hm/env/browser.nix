@@ -19,6 +19,7 @@ in
     enable = true;
     extraConfig = ''
       c.url.searchengines = {'DEFAULT': 'https://ecosia.org/search?q={}'}
+      c.backend = 'webengine'
       config.unbind('<Ctrl-W>')
       config.unbind('D')
       config.bind('x', 'tab-close')
