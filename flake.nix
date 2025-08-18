@@ -20,6 +20,11 @@
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
+
+    arion = {
+      url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -28,6 +33,7 @@
       home-manager,
       nixvim,
       nixpkgs,
+      arion,
       hyprland,
       ...
     }@inputs:
@@ -36,6 +42,12 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
       inherit (self) outputs;
+
+      hosts = [
+        "Zach-Laptop"
+        "Zach-Desktop"
+        "Twenty-CRM"
+      ];
 
       #===========================================
       #===========FLAKE-CLASS-CONFIG==============
@@ -84,6 +96,33 @@
 
       # Resuable configuration modules and resources
       configModules = import ./modules/config;
+      # For each hostname, generate a config (note that ./hosts/${hostname}/ must exist!
+      #/*
+      nixosConfigurations = lib.genAttrs hosts (
+        hostname:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs outputs; };
+          modules = configSettings ++ [
+            # All shared modules can be found in configSettings
+            # import modules unique to this host
+            ./hosts/${hostname}/all.nix
+            (
+              { pkgs, ... }:
+              {
+                home-manager.users.zacharyas.imports = [
+                  # import host-specific hm module
+                  ./hosts/${hostname}/hm.nix
+                ];
+              }
+            )
+          ];
+
+        }
+      );
+    };
+  #*/
+  /*
       nixosConfigurations = {
         Zach-Laptop = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -126,4 +165,5 @@
       };
 
     };
+  */
 }
