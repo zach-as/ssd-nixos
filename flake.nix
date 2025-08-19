@@ -46,7 +46,6 @@
       hosts = [
         "Zach-Laptop"
         "Zach-Desktop"
-        "Twenty-CRM"
       ];
 
       #===========================================
