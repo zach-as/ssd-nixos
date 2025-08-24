@@ -7,5 +7,6 @@
     ./dev.nix
     ./web.nix
     ./shell.nix
+    ./haskell.nix
   ];
 }
