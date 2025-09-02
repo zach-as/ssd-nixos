@@ -1,11 +1,11 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     # Dotnet 8.x
     dotnetCorePackages.sdk_8_0_3xx-bin
 
-    # NodeJS 20.x 
+    # NodeJS 20.x
     nodejs_20
 
     # GNU Compiler
@@ -13,5 +13,6 @@
 
     # Package management for NPM
     npm-check-updates
+
   ];
 }

@@ -41,8 +41,12 @@ in
     opts = {
       number = true;
       shiftwidth = 2;
+      tabstop = 2;
       wildmenu = true;
       wildmode = "longest:full,full";
+      autoindent = true;
+      undofile = true;
+      expandtab = true;
     };
 
     # Set the leader key

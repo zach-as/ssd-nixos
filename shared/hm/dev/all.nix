@@ -8,5 +8,6 @@
     ./web.nix
     ./shell.nix
     ./haskell.nix
+    ./godot.nix
   ];
 }
